@@ -14,7 +14,7 @@ public class As3_ParallelSort {
 
         while(true){
 
-            System.out.println("Press 1 for sort by country\nPress 2 to for sort by year\nPress 3 for filter by airport\nPress 4 countif/sumif\nPress 5 to search by country and year\nPress 6 to exit.");
+            System.out.println("Press 1 for sort by country\nPress 2 to for sort by year\nPress 3 for filter by airport\nPress 4 for sum of passengers\nPress 5 to search by country and year\nPress 6 to exit.");
 
 
             int choice = input.nextInt();
