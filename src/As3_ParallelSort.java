@@ -1,4 +1,3 @@
-import java.util.Locale;
 import java.util.Scanner;
 
 public class As3_ParallelSort {
@@ -15,7 +14,7 @@ public class As3_ParallelSort {
 
         while(true){
 
-            System.out.println("Press 1 for sort by country\nPress 2 to for sort by year\nPress 3 for filter by airport\nPress 4 countif/sumif\nPress 5 to exit.");
+            System.out.println("Press 1 for sort by country\nPress 2 to for sort by year\nPress 3 for filter by airport\nPress 4 countif/sumif\nPress 5 to search by country and year\nPress 6 to exit.");
 
 
             int choice = input.nextInt();
@@ -50,7 +49,23 @@ public class As3_ParallelSort {
                 //sumif or countif
                 System.out.println("Sum");
             }
-            if (choice == 5) {
+            if(choice == 5){
+                //linear search
+                System.out.println("What country do you want to search for?");
+                String answer = input.nextLine();
+
+                System.out.println("What year do you want to search for?");
+                int answer2 = input.nextInt();
+                input.nextLine();
+
+                int foundIndex = search(answer, answer2);
+                if(foundIndex == -1){
+                    System.out.println("No country or year found");
+                }else{
+                    System.out.println("In " + allYears[foundIndex] + " " + allAirports[foundIndex] + " in " + allCountries[foundIndex] + " had " + allPassengers[foundIndex] + " passengers");
+                }
+            }
+            if (choice == 6) {
                 break;
             }
             System.out.println();
@@ -124,12 +139,30 @@ public class As3_ParallelSort {
 
 
 
-    public static void airportSearch( String query){
+    public static void airportSearch( String ans){
         for (int i = 0; i < allAirports.length; i++) {
-            if(allAirports[i].toLowerCase().contains(query)){
+            if(allAirports[i].toLowerCase().contains(ans)){
                 System.out.println("In " + allYears[i] + " " + allAirports[i] + " in " + allCountries[i] + " had " + allPassengers[i] + " passengers");
             }
         }//for i
+//        System.out.println("No airports found");
     }//filter by airport
+
+
+//    public static void passengerSum(){
+//
+//
+//
+//    }//passengerSum
+
+
+    public static int search(String country, int year){
+        for (int i = 0; i < allCountries.length; i++) {
+            if(allCountries[i].equalsIgnoreCase(country) && allYears[i] == year) {
+                return i;
+            }
+        }
+        return -1;
+    }//search by country
 
 }//class
