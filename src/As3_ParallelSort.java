@@ -47,7 +47,13 @@ public class As3_ParallelSort {
             }
             if (choice == 4){
                 //sumif or countif
-                System.out.println("Sum");
+                System.out.println("Enter the airport that you want to find the sum of passengers for");
+                String airport = input.nextLine();
+
+                int totalSum = passengerSum(airport);
+                System.out.println("The total sum of passengers of " + airport + " airport is " + totalSum);
+
+
             }
             if(choice == 5){
                 //linear search
@@ -149,11 +155,15 @@ public class As3_ParallelSort {
     }//filter by airport
 
 
-//    public static void passengerSum(){
-//
-//
-//
-//    }//passengerSum
+    public static int passengerSum(String ans){
+        int sum = 0;
+        for (int i = 0; i < allAirports.length; i++) {
+            if(allAirports[i].toLowerCase().contains(ans)){
+                sum += allPassengers[i];
+            }
+        }
+        return sum;
+    }//passengerSum
 
 
     public static int search(String country, int year){
