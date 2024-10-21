@@ -151,7 +151,6 @@ public class As3_ParallelSort {
                 System.out.println("In " + allYears[i] + " " + allAirports[i] + " in " + allCountries[i] + " had " + allPassengers[i] + " passengers");
             }
         }//for i
-//        System.out.println("No airports found");
     }//filter by airport
 
 
