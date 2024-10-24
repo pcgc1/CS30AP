@@ -15,7 +15,7 @@ public class MySort {
             arr[i] = arr[lowestIndex];
             arr[lowestIndex] = temp;
 
-        }
+        }//end for i
     }//selection sort int
 
 
