@@ -9,24 +9,31 @@ public class As4_BinarySearch {
 
     public static void run(){
 
-        for (String names: allAnimals) {
-            System.out.println(names);
-        }
 
-        System.out.println("Enter a sea creature from the list above");
-        String creature = input.nextLine();
-
-        int foundIndex = MySearch.binarySearch(allAnimals, creature);
-        if(foundIndex == -1){
-            System.out.println("Sea creature not found. Try again");
-        }else{
-            System.out.println("Creature found! A " + allAnimals[foundIndex] + " is a " + allTypes[foundIndex]);
-            if(allEndanger[foundIndex]){
-                System.out.println("This species is endangered");
-            }else{
-                System.out.println("This species is not endangered");
+        while(true) {
+            for (String names : allAnimals) {
+                System.out.println(names);
             }
-        }
+
+            System.out.println("\nEnter a sea creature from the list above or type exit to end the program");
+            String answer = input.nextLine();
+
+            if(answer.equalsIgnoreCase("exit")){
+                break;
+            }
+
+            int foundIndex = MySearch.binarySearch(allAnimals, answer);
+            if (foundIndex == -1) {
+                System.out.println("Sea creature not found. Try again");
+            } else {
+                System.out.println("Creature found! A " + allAnimals[foundIndex] + " is a " + allTypes[foundIndex]);
+                if (allEndanger[foundIndex]) {
+                    System.out.println("This species is endangered");
+                } else {
+                    System.out.println("This species is not endangered");
+                }
+            }
+        }//while loop
 
     }//run
 
